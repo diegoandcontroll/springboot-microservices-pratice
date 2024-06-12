@@ -31,7 +31,7 @@
       "projectName": "customer",
       "args": "",
       "envFile": "${workspaceFolder}/.env",
-      "vmArgs": " -Dcom.sun.management.jmxremote"
+      "vmArgs": " -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=32957 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Dspring.jmx.enabled=true -Djava.rmi.server.hostname=localhost -Dspring.application.admin.enabled=true -Dspring.boot.project.name=customer"
     },
     {
       "type": "java",
@@ -40,6 +40,38 @@
       "cwd": "${workspaceFolder}",
       "mainClass": "com.diegoandcontroll.product.ProductApplication",
       "projectName": "product",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env",
+      "vmArgs": " -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=33675 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Dspring.jmx.enabled=true -Djava.rmi.server.hostname=localhost -Dspring.application.admin.enabled=true -Dspring.boot.project.name=product"
+    },
+    {
+      "type": "java",
+      "name": "Spring Boot-PaymentApplication<payment>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "com.diegoandcontroll.payment.PaymentApplication",
+      "projectName": "payment",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env",
+      "vmArgs": " -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=41597 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Dspring.jmx.enabled=true -Djava.rmi.server.hostname=localhost -Dspring.application.admin.enabled=true -Dspring.boot.project.name=payment"
+    },
+    {
+      "type": "java",
+      "name": "Spring Boot-OrderApplication<order>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "com.diegoandcontroll.order.OrderApplication",
+      "projectName": "order",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env"
+    },
+    {
+      "type": "java",
+      "name": "Spring Boot-NotificationApplication<notification>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "com.diegoandcontroll.notification.NotificationApplication",
+      "projectName": "notification",
       "args": "",
       "envFile": "${workspaceFolder}/.env"
     }

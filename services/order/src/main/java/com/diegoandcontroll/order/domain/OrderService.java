@@ -11,10 +11,10 @@ import com.diegoandcontroll.order.kafka.OrderConfirmation;
 import com.diegoandcontroll.order.kafka.OrderProducer;
 import com.diegoandcontroll.order.orderline.OrderLineRequest;
 import com.diegoandcontroll.order.orderline.OrderLineService;
+import com.diegoandcontroll.order.payment.PaymentClient;
+import com.diegoandcontroll.order.payment.PaymentRequest;
 import com.diegoandcontroll.order.product.ProductClient;
 import com.diegoandcontroll.order.product.PurchaseRequest;
-import com.diegoandcontroll.payment.PaymentClient;
-import com.diegoandcontroll.payment.PaymentRequest;
 
 import java.util.List;
 import java.util.stream.Collectors;

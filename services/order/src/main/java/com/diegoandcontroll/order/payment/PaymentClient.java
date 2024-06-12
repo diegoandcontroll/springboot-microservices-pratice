@@ -1,4 +1,4 @@
-package com.diegoandcontroll.payment;
+package com.diegoandcontroll.order.payment;
 
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PostMapping;

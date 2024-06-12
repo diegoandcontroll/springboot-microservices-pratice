@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
 @EnableJpaAuditing
 @EnableFeignClients
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = {"com.diegoandcontroll.order", "com.diegoandcontroll.payment"})
 public class OrderApplication {
 
 	public static void main(String[] args) {
