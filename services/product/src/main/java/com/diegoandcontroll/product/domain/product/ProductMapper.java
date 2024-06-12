@@ -10,6 +10,7 @@ public class ProductMapper {
         return Product.builder()
                 .id(request.id())
                 .name(request.name())
+                .image("")
                 .description(request.description())
                 .availableQuantity(request.availableQuantity())
                 .price(request.price())
@@ -26,6 +27,7 @@ public class ProductMapper {
                 product.getId(),
                 product.getName(),
                 product.getDescription(),
+                product.getImage(),
                 product.getAvailableQuantity(),
                 product.getPrice(),
                 product.getCategory().getId(),
@@ -38,6 +40,7 @@ public class ProductMapper {
         return new ProductPurchaseResponse(
                 product.getId(),
                 product.getName(),
+                product.getImage(),
                 product.getDescription(),
                 product.getPrice(),
                 quantity

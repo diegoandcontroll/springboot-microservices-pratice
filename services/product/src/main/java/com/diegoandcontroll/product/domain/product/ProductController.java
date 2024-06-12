@@ -8,8 +8,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.List;
 
 @RestController
@@ -43,5 +46,15 @@ public class ProductController {
     @GetMapping
     public ResponseEntity<List<ProductResponse>> findAll() {
         return ResponseEntity.ok(service.findAll());
+    }
+
+    @PostMapping("/upload/{product-id}")
+    public ResponseEntity<ProductResponse> uploadImage( @PathVariable("product-id") Integer productId, @RequestParam("file") MultipartFile file) {
+        try {
+            ProductResponse updatedProduct = service.uploadImageAndUpdateProduct(productId, file);
+            return ResponseEntity.ok(updatedProduct);
+        } catch (IOException e) {
+            return ResponseEntity.status(500).body(null);
+        }
     }
 }

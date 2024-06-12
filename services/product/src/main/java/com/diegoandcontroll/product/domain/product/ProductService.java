@@ -4,12 +4,17 @@ import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
 
+import com.cloudinary.Cloudinary;
+import com.cloudinary.utils.ObjectUtils;
 import com.diegoandcontroll.product.domain.category.exception.ProductPurchaseException;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 @Service
@@ -18,6 +23,7 @@ public class ProductService {
 
     private final ProductRepository repository;
     private final ProductMapper mapper;
+    private final Cloudinary cloudinary;
 
     public Integer createProduct(
             ProductRequest request
@@ -69,5 +75,17 @@ public class ProductService {
         }
         return purchasedProducts;
     }
+    @Transactional
+    public ProductResponse uploadImageAndUpdateProduct(Integer productId, MultipartFile imageFile) throws IOException {
+        // Upload da imagem para o Cloudinary
+        Map uploadResult = cloudinary.uploader().upload(imageFile.getBytes(), ObjectUtils.emptyMap());
+        String imageUrl = uploadResult.get("url").toString();
 
+        // Atualizar o produto com a URL da imagem
+        Product product = repository.findById(productId).orElseThrow(() -> new RuntimeException("Product not found"));
+        product.setImage(imageUrl);
+        repository.save(product);
+        ProductResponse response = mapper.toProductResponse(product);
+        return response;
+    }
 }

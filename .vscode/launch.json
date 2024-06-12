@@ -63,7 +63,8 @@
       "mainClass": "com.diegoandcontroll.order.OrderApplication",
       "projectName": "order",
       "args": "",
-      "envFile": "${workspaceFolder}/.env"
+      "envFile": "${workspaceFolder}/.env",
+      "vmArgs": " -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=40291 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Dspring.jmx.enabled=true -Djava.rmi.server.hostname=localhost -Dspring.application.admin.enabled=true -Dspring.boot.project.name=order"
     },
     {
       "type": "java",
@@ -72,6 +73,17 @@
       "cwd": "${workspaceFolder}",
       "mainClass": "com.diegoandcontroll.notification.NotificationApplication",
       "projectName": "notification",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env",
+      "vmArgs": " -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=41815 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Dspring.jmx.enabled=true -Djava.rmi.server.hostname=localhost -Dspring.application.admin.enabled=true -Dspring.boot.project.name=notification"
+    },
+    {
+      "type": "java",
+      "name": "Spring Boot-GatewayApplication<gateway>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "com.diegoandcontroll.gateway.GatewayApplication",
+      "projectName": "gateway",
       "args": "",
       "envFile": "${workspaceFolder}/.env"
     }

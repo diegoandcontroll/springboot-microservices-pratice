@@ -1,11 +1,17 @@
 server:
+  tomcat:
+    max-swallow-size: 10MB
   port: 8050
 spring:
+  servlet:
+    multipart:
+      max-file-size: 10MB  
+      max-request-size: 10MB
   datasource:
     driver-class-name: org.postgresql.Driver
     url: jdbc:postgresql://localhost:5432/product
-    username: alibou
-    password: alibou
+    username: microservices
+    password: microservices
   jpa:
     hibernate:
       ddl-auto: validate
@@ -18,3 +24,7 @@ spring:
     baseline-version: 0
     user: ${spring.datasource.username}
     password: ${spring.datasource.password}
+cloudinary:
+  cloud_name: 
+  api_key: 
+  api_secret: 
